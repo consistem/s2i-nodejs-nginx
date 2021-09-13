@@ -9,7 +9,7 @@ on:
 env:
   IMAGE_NAME: s2i-nodejs-nginx
   QUAY_USER: evanshortiss
-  LATEST_VERSION: "14" 
+  LATEST_VERSION: "16"
 
 jobs:
   # Run tests.
@@ -36,7 +36,7 @@ jobs:
     needs: test
     strategy:
       matrix:
-        versions: ["14", "12", "10"]
+        versions: ["16", "14", "12", "10"]
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
     steps:
@@ -51,7 +51,7 @@ jobs:
       - name: Tag "latest" image
         if: ${{ matrix.versions == env.LATEST_VERSION }}
         run: docker tag quay.io/$QUAY_USER/$IMAGE_NAME:${{ matrix.versions }}-nginx1.18 quay.io/$QUAY_USER/$IMAGE_NAME:latest
-      
+
       - name: Log into the quay.io registry
         run: echo "${{ secrets.QUAY_ROBOT_PASS }}" | docker login quay.io -u ${{ secrets.QUAY_ROBOT_NAME }} --password-stdin
 

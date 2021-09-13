@@ -40,9 +40,9 @@ RUN echo "Using Node.js v${NODE_VERSION} and NGINX v${NGINX_VERSION}"
 RUN mkdir -p ${HOME} && \
     mkdir -p /usr/libexec/s2i && \
     mkdir ${HOME}/.npm-global && \
-    mkdir -p /run/nginx && \ 
+    mkdir -p /run/nginx && \
     apk -U upgrade && \
-    apk add --no-cache --update bash tar && \
+    apk add --no-cache --update bash tar g++ make libc-dev python3 && \
     echo "Installing NGINX ${NGINX_VERSION}" && \
     apk add --no-cache nginx --repository=${APK_REPO} nginx~=${NGINX_VERSION} && \
     rm -rf /var/cache/apk/*

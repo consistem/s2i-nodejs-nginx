@@ -1,6 +1,6 @@
 # S2I: Node.js / NGINX
 
-This is an updated fork of 
+This is an updated fork of
 [jshmrtn/s2i-nodejs-nginx](https://github.com/jshmrtn/s2i-nodejs-nginx), that
 builds on their incredible work - thank you jshmrtn! 🤘
 
@@ -159,7 +159,7 @@ to set some environment variables.
 If you'd like to contribute, then being able to test locally is a must. Here
 are some helpful commands to get running locally:
 
-### Build a Builder Image 
+### Build a Builder Image
 
 This will produce a builder image that uses Node.js 14 and NGINX 1.18:
 
@@ -183,8 +183,8 @@ To use NGINX 1.16, change the `NGINX_VERSION` and `APK_REPO` variables:
 export NODE_VERSION=14
 export NGINX_VERSION=1.16
 
-# Must set the APK_REPO to 3.10 find NGINX 1.16
-export APK_REPO=http://dl-cdn.alpinelinux.org/alpine/v3.10/main
+# Set the APK_REPO to 3.10 find NGINX 1.16, or 3.12 for NGINX 1.18
+export APK_REPO=http://dl-cdn.alpinelinux.org/alpine/v3.12/main
 
 docker build . -f alpine.Dockerfile \
 --build-arg NODE_VERSION=$NODE_VERSION \
