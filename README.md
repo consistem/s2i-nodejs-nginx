@@ -18,6 +18,14 @@ export OUTPUT_IMAGE_NAME=nginx-webapp-runner
 s2i build $REPO_URL quay.io/evanshortiss/s2i-nodejs-nginx:latest $OUTPUT_IMAGE_NAME
 ```
 
+## Security Note
+
+This image provides a convenient way to build web application containers. The
+tradeoff is that the resulting container is a little bloated with Python, g++,
+Node.js etc. If you want leaner production grade containers you should
+consider a [Multi-Stage Build](https://docs.docker.com/develop/develop-images/multistage-build/)
+or [OpenShift Chained Builds](https://docs.openshift.com/container-platform/4.3/builds/advanced-build-operations.html#builds-chaining-builds_advanced-build-operations).
+
 ## What Does it Do?
 
 When used in conjunction with [s2i (source-to-image)](https://github.com/openshift/source-to-image#installation),
@@ -30,7 +38,11 @@ The process is illustrated in the diagram below:
 
 ## Supported Version Combinations
 
-* Node.js 14 and NGINX 1.18 (14-nginx1.18 / latest)
+The text in the parentheses below are available image tag names.
+
+* Node.js 16 and NGINX 1.18 (14-nginx1.18 / latest)
+* Node.js 16 and NGINX 1.16 (14-nginx1.16)
+* Node.js 14 and NGINX 1.18 (14-nginx1.18)
 * Node.js 14 and NGINX 1.16 (14-nginx1.16)
 * Node.js 12 and NGINX 1.18 (12-nginx1.18)
 * Node.js 12 and NGINX 1.16 (12-nginx1.16)
