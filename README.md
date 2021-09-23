@@ -40,8 +40,8 @@ The process is illustrated in the diagram below:
 
 The text in the parentheses below are available image tag names.
 
-* Node.js 16 and NGINX 1.18 (14-nginx1.18 / latest)
-* Node.js 16 and NGINX 1.16 (14-nginx1.16)
+* Node.js 16 and NGINX 1.18 (16-nginx1.18 / latest)
+* Node.js 16 and NGINX 1.16 (16-nginx1.16)
 * Node.js 14 and NGINX 1.18 (14-nginx1.18)
 * Node.js 14 and NGINX 1.16 (14-nginx1.16)
 * Node.js 12 and NGINX 1.18 (12-nginx1.18)
