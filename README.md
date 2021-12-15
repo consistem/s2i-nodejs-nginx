@@ -62,7 +62,7 @@ Alpine base images from Docker Hub, e.g `14-alpine`.
 The web application being built using this builder must:
 
 1. Contain a `build` entry in the `scripts` section of the *package.json*
-1. The `build` script must produce a *dist/* folder in the root of the repository (it can be added to *.gitignore*)
+1. The `build` script must produce a *dist/* folder (alternative directory can be specified using a `BUILD_OUTPUT_DIR` environment variable) in the root of the repository (it can be added to *.gitignore*)
 1. An *index.html* must be at the root of the *dist/* folder
 1. All other static assets must be included in the *dist/* relative to *index.html*
 
