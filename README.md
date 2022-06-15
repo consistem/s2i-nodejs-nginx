@@ -39,8 +39,8 @@ The process is illustrated in the diagram below:
 ## Supported Version Combinations
 
 The text in the parentheses below are available image tag names.
-
-* Node.js 16 and NGINX 1.18 (16-nginx1.18 / latest)
+* Node.js 16 and NGINX 1.18 (16-nginx1.22 / latest)
+* Node.js 16 and NGINX 1.18 (16-nginx1.18)
 * Node.js 16 and NGINX 1.16 (16-nginx1.16)
 * Node.js 14 and NGINX 1.18 (14-nginx1.18)
 * Node.js 14 and NGINX 1.16 (14-nginx1.16)
@@ -176,11 +176,11 @@ are some helpful commands to get running locally:
 This will produce a builder image that uses Node.js 14 and NGINX 1.18:
 
 ```bash
-export NODE_VERSION=14
-export NGINX_VERSION=1.18
+export NODE_VERSION=16
+export NGINX_VERSION=1.22
 
 # Must set the APK_REPO to 3.12 find NGINX 1.18
-export APK_REPO=http://dl-cdn.alpinelinux.org/alpine/v3.10/main
+export APK_REPO=http://dl-cdn.alpinelinux.org/alpine/v3.16/main
 
 docker build . -f alpine.Dockerfile \
 --build-arg NODE_VERSION=$NODE_VERSION \
