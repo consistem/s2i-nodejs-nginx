@@ -186,7 +186,13 @@ docker build . -f alpine.Dockerfile \
 --build-arg NODE_VERSION=$NODE_VERSION \
 --build-arg NGINX_VERSION=$NGINX_VERSION \
 --build-arg APK_REPO=$APK_REPO \
--t s2i-webapp-builder
+-t s2i-nodejs-nginx
+
+# Push to nexus
+docker image tag s2i-nodejs-nginx nexus.consistem.com.br:4400/s2i-nodejs-nginx:$NODE_VERSION-nginx-$NGINX_VERSION
+
+docker push nexus.consistem.com.br:4400/s2i-nodejs-nginx:$NODE_VERSION-nginx-$NGINX_VERSION
+
 ```
 
 To use NGINX 1.16, change the `NGINX_VERSION` and `APK_REPO` variables:
@@ -202,7 +208,13 @@ docker build . -f alpine.Dockerfile \
 --build-arg NODE_VERSION=$NODE_VERSION \
 --build-arg NGINX_VERSION=$NGINX_VERSION \
 --build-arg APK_REPO=$APK_REPO \
--t s2i-webapp-builder
+-t s2i-nodejs-nginx
+
+# Push to nexus
+docker image tag s2i-nodejs-nginx nexus.consistem.com.br:4400/s2i-nodejs-nginx:$NODE_VERSION-nginx-$NGINX_VERSION
+
+docker push nexus.consistem.com.br:4400/s2i-nodejs-nginx:$NODE_VERSION-nginx-$NGINX_VERSION
+
 ```
 
 ### Testing Builder Images
