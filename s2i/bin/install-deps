@@ -1,19 +1,20 @@
 #!/bin/bash -e
 
+export 
 # Change the npm registry mirror if provided
 if [ -n "$NPM_MIRROR" ]; then
   echo "---> Setting NPM mirror..."
   npm config set registry $NPM_MIRROR
 fi
 
-if [[ -f yarn.lock ]]; then
+#if [[ -f yarn.lock ]]; then
   echo "---> Installing your dependencies using Node.js $(node -v) and yarn v$(yarn -v)..."
   yarn config set prefix $(npm config get prefix)
   yarn config set cache-folder "$HOME/.yarn-cache"
   yarn install --ignore-scripts --non-interactive --production=false --pure-lockfile --prefer-offline
-else
-  echo "---> Installing your dependencies using Node.js $(node -v) and npm v$(npm -v)..."
-  npm config set cache "$HOME/.npm-cache"
-  npm config set prefix "$HOME/.npm-global"
-  npm install
-fi
+#else
+#  echo "---> Installing your dependencies using Node.js $(node -v) and npm v$(npm -v)..."
+#  npm config set cache "$HOME/.npm-cache"
+#  npm config set prefix "$HOME/.npm-global"
+#  npm install
+#fi
